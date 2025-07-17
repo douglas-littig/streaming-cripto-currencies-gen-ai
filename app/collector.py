@@ -22,6 +22,9 @@ def save_data_to_landing(data):
     Salva os dados na camada de landing.
     """
     if data:
+        # Adiciona o timestamp ao dicionário de dados
+        data['timestamp'] = datetime.now().isoformat()
+
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         filename = f"data/landing/crypto_data_{timestamp}.json"
         with open(filename, 'w') as f:
